@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <Styles.Navbar>
       <NavLink to="/" className="brand">
-       <p> Code<span>Blog</span></p>
+       <p> Cod<span>Ing</span></p>
       </NavLink>
       <Styles.LinkList>
         <li>

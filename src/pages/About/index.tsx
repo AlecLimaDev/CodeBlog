@@ -6,7 +6,7 @@ const About = () => {
   return (
     <Styles.About>
       <h2>
-        Sobre a<span> CodeBlog</span>
+        Sobre a<span> Coding</span>
       </h2>
       <p>
         A CodeBlog é um projeto que eu tinha em mente cujo objetivo é

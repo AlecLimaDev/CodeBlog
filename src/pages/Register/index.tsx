@@ -43,8 +43,8 @@ const Register = () => {
   return (
     <Styles.Register>
       <form onSubmit={handleSubmit}>
-      <h1>CodeBlog
-      <img src="/src/assets/react.svg" alt="" />
+      <h1>Coding
+      <img src="/src/assets/images/react.svg" alt="" />
       </h1>
       <h3>Cadastre-se para visualizar o conteúdo de outras pessoas.</h3>
         <label>

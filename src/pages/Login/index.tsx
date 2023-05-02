@@ -35,8 +35,8 @@ const Login = () => {
         <form onSubmit={handleSubmit}>
           <label>
             
-            <h1>CodeBlog
-            <img src="/src/assets/react.svg" alt="logo-react" />
+            <h1>Coding
+            <img src="/src/assets/images/react.svg" alt="logo-react" />
             </h1>
             <span>E-mail: </span>
             <input

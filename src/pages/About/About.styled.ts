@@ -10,6 +10,14 @@ export const About = styled.div`
 
     h2 {
         text-transform: none;
+        font-family: 'Pacifico', cursive;
+        font-weight: 300;
+        font-size: 30px;
+    }
+
+    span {
+        font-family: 'Pacifico', cursive;
+        font-weight: 700;
     }
 
     p {
