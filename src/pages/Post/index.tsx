@@ -17,7 +17,7 @@ const Post = () => {
           <p>{post.body}</p>
           <h3>Esse post trata sobre: </h3>
           <div className="tags">
-            {post.tagsArray.map((tag) => (
+            {post.tagsArray.map((tag: any) => (
               <p key={tag}>
                 <span>#</span>
                 {tag}

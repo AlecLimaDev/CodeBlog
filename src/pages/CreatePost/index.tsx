@@ -1,5 +1,5 @@
 import * as Styles from "./CreatePost.styled";
-
+import { URL } from 'node:url';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
@@ -9,24 +9,24 @@ const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<any>([]);
   const [formError, setFormError] = useState("");
   const { insertDocument, response } = useInsertDocument("posts");
-  const { user } = useAuthValue();
+  const { user }: any = useAuthValue();
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     setFormError("");
 
     try {
-      new URL();
+        new URL(''); 
     } catch (error) {
       setFormError("A imagem precisa ser uma URL.");
     }
 
-    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+    const tagsArray: any = tags.split(",").map((tag: any) => tag.trim().toLowerCase());
 
     if (!title || !image || !tags || !body) {
       setFormError("Por favor, preencha todos os campos!");
@@ -91,7 +91,7 @@ const CreatePost = () => {
             name="tags"
             required
             placeholder="Insira as tags separadas por vírgula"
-            onChange={(e) => setTags(e.target.value)}
+            onChange={(e: any) => setTags(e.target.value)}
             value={tags}
           />
         </Styles.Label>

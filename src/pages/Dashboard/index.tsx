@@ -7,10 +7,10 @@ import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 
 const Dashboard = () => {
-  const { user } = useAuthValue();
+  const { user }: any = useAuthValue();
   const uid = user.uid;
 
-  const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
+  const { documents: posts, loading }: any = useFetchDocuments("posts", null, uid);
 
   const { deleteDocument } = useDeleteDocument("posts");
 
@@ -37,7 +37,7 @@ const Dashboard = () => {
       )}
 
       {posts &&
-        posts.map((post) => (
+        posts.map((post: any) => (
           <Styles.PostRow key={post.id}>
             <p>{post.title}</p>
             <div className="actions">

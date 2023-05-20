@@ -22,11 +22,12 @@ const updateReducer = (state: any, action: { type: string; payload: any; }) => {
 };
 
 export const useUpdateDocument = (docCollection: string) => {
-  const [response, dispatch] = useReducer(updateReducer, initialState);
+  const [response, dispatch]: any = useReducer(updateReducer, initialState);
 
   const [cancelled, setCancelled] = useState(false);
 
-  const checkCancelBeforeDispatch = (action: { type: string; payload?: any; }) => {
+
+  const checkCancelBeforeDispatch = (action: { type: any; payload?: any; }) => {
     if (!cancelled) {
       dispatch(action);
     }

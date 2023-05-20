@@ -8,7 +8,7 @@ import * as Styles from "../Navbar/Navbar.styled";
 
 
 const Navbar = () => {
-  const { user } = useAuthValue();
+  const { user }: any = useAuthValue();
   const { logout } = useAuthentication();
 
   return (

@@ -39,7 +39,7 @@ const EditPost: React.FC = () => {
     setFormError("");
 
     try {
-      new URL();
+      new URL('');
     } catch (error) {
       setFormError("A imagem precisa ser uma URL.");
     }
