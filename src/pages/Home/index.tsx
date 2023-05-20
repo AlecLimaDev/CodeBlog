@@ -8,10 +8,10 @@ import PostDetail from "../../components/PostDetail";
 
 const Home = () => {
   const [query, setQuery] = useState("");
-  const { documents: posts, loading } = useFetchDocuments("posts");
+  const { documents: posts, loading }: any = useFetchDocuments("posts");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
 
     if (query) {
@@ -32,7 +32,7 @@ const Home = () => {
       </form>
       <div>
         {loading && <p>Carregando...</p>}
-        {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
+        {posts && posts.map((post: any) => <PostDetail key={post.id} post={post} />)}
         {posts && posts.length === 0 && (
           <div className="noposts">
             <p>Não foram encontrados posts no Feed</p>

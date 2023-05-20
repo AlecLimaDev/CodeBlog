@@ -9,10 +9,10 @@ import {
 
 import { onAuthStateChanged } from "firebase/auth";
 
-import { useState, useEffect } from "react";
-import { useAuthentication } from "./hooks/useAuthentication";
+import React, { useState, useEffect } from "react";
+import { useAuthentication } from "./hooks/useAuthentication.tsx";
 
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext.tsx";
 import ReactSwitch from "react-switch";
 
 import Home from "./pages/Home/index";
@@ -27,8 +27,12 @@ import Search from "./pages/Search/index";
 import Post from "./pages/Post/index";
 import EditPost from "./pages/EditPost/index";
 
+interface AppProps {
+  theme?: boolean | string;
+  className?: string;
+}
 
-function App() {
+const App: React.FC<AppProps> = () => {
   const [theme, setTheme] = useState("dark")
 
   const toggleTheme = () => {
@@ -47,19 +51,23 @@ function App() {
   }, [auth]);
 
   if (loadingUser) {
-    return <p>Carregando...</p>;
+    return <>
+      <>Carregando...</>
+    </>
   }
 
   return (
     <div className="App" id={theme}>
-      <AuthProvider value={{ user, theme, toggleTheme }}>
+      <AuthProvider
+        value={{ user, theme, toggleTheme}}
+      >
         <Router>
           <Navbar />
           <Styles.Container>
-          <div className="switch">
-          <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
-          <ReactSwitch onChange={toggleTheme} checked={theme === "dark"}/>
-        </div>
+            <div className="switch">
+              <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+              <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+            </div>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -95,3 +103,5 @@ function App() {
 }
 
 export default App;
+
+

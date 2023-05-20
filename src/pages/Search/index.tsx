@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 
 const Search = () => {
   const query = useQuery();
-  const search = query.get("q");
-  const { documents: posts } = useFetchDocuments("posts", search);
+  const search: any = query.get("q");
+  const { documents: posts }: any = useFetchDocuments("posts", search);
 
   return (
     <Styles.SearchContainer>
@@ -23,7 +23,7 @@ const Search = () => {
             </Link>
           </div>
         )}
-        {posts && posts.map((post) => <PostDetail key={post.id} post={post} />)}
+        {posts && posts.map((post: any) => <PostDetail key={post.id} post={post} />)}
       </div>
     </Styles.SearchContainer>
   );

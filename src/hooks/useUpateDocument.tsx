@@ -7,7 +7,8 @@ const initialState = {
   error: null,
 };
 
-const updateReducer = (state, action: { type; payload; }) => {
+
+const updateReducer = (state: any, action: { type: string; payload: any; }) => {
   switch (action.type) {
     case "LOADING":
       return { loading: true, error: null };
@@ -43,7 +44,7 @@ export const useUpdateDocument = (docCollection: string) => {
         type: "UPDATED_DOC",
         payload: updateDocument,
       });
-    } catch (error) {
+    } catch (error: any) {
       checkCancelBeforeDispatch({ type: "ERROR", payload: error.message });
     }
   };

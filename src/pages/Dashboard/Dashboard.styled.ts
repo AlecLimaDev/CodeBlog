@@ -7,7 +7,7 @@ export const Dashboard = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+  
 
     h2 {
     font-size: 2.2em;

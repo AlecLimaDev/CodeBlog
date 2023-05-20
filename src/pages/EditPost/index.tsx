@@ -3,22 +3,21 @@ import * as Styles from "./EditPost.styled";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
-import { useInsertDocument } from "../../hooks/useInsertDocument";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useUpdateDocument } from "../../hooks/useUpateDocument";
 
 
-const EditPost = () => {
-  const { id } = useParams();
-  const { document: post } = useFetchDocument("posts", id);
+const EditPost: React.FC = () => {
+  const { id }: any = useParams();
+  const { document: post }: any = useFetchDocument("posts", id);
 
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState<any>([]);
   const [formError, setFormError] = useState("");
   const { updateDocument, response } = useUpdateDocument("posts");
-  const { user } = useAuthValue();
+  const { user }: any = useAuthValue();
 
 
 
@@ -35,7 +34,7 @@ const EditPost = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     setFormError("");
 
@@ -45,7 +44,7 @@ const EditPost = () => {
       setFormError("A imagem precisa ser uma URL.");
     }
 
-    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
+    const tagsArray: string = tags.split(",").map((tag: any) => tag.trim().toLowerCase());
 
     if (!title || !image || !tags || !body) {
       setFormError("Por favor, preencha todos os campos!");

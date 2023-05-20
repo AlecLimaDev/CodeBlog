@@ -1,8 +1,7 @@
 import * as Styles from "./About.styled";
-
 import { Link } from "react-router-dom";
 
-const About = () => {
+const About: React.FC = () => {
   return (
     <Styles.About>
       <h2>

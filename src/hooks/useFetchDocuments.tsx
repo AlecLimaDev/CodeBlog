@@ -8,7 +8,7 @@ import {
   where,
 } from "firebase/firestore";
 
-export const useFetchDocuments = (docCollection, search = null, uid = null) => {
+export const useFetchDocuments = (docCollection: any, search = null, uid = null) => {
   const [documents, setDocuments] = useState<null | unknown>(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState<boolean | null>(null);
@@ -50,7 +50,7 @@ export const useFetchDocuments = (docCollection, search = null, uid = null) => {
         });
 
         setLoading(false);
-      } catch (error) {
+      } catch (error: any) {
         console.log(error);
         setError(error.message);
 

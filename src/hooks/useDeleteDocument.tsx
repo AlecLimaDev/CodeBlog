@@ -20,7 +20,7 @@ const deleteReducer = (state: unknown, action: any) => {
   }
 };
 
-export const useDeleteDocument = (docCollection: unknown) => {
+export const useDeleteDocument = (docCollection: any) => {
   const [response, dispatch] = useReducer(deleteReducer, initialState);
 
   // deal with memory leak
@@ -32,7 +32,7 @@ export const useDeleteDocument = (docCollection: unknown) => {
     }
   };
 
-  const deleteDocument = async (id: unknown) => {
+  const deleteDocument = async (id: any) => {
     checkCancelBeforeDispatch({ type: "LOADING" });
 
     try {
@@ -42,7 +42,7 @@ export const useDeleteDocument = (docCollection: unknown) => {
         type: "DELETED_DOC",
         payload: deleteDocument,
       });
-    } catch (error: unknown) {
+    } catch (error: any) {
       checkCancelBeforeDispatch({ type: "ERROR", payload: error.message });
     }
   };

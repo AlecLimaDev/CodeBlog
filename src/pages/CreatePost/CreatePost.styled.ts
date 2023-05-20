@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 export const CreatePost = styled.div`
     text-align: center;
+    
 
     h2 {
     font-size: 2.2em;
@@ -16,6 +17,10 @@ export const CreatePost = styled.div`
     &:hover {
         background-color: #5BEA1C;
     }
+}
+
+form {
+    border: 1px solid rgb(100, 99, 99);
 }
 
 `

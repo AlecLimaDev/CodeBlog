@@ -1,9 +1,8 @@
 import * as Styles from "./Register.styled";
 
-import React from "react";
-
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
@@ -12,9 +11,9 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { createUser, error: authError, loading } = useAuthentication();
+  const { createUser, error: authError, loading }: any = useAuthentication();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     setError("");
@@ -100,7 +99,9 @@ const Register = () => {
         {error && <p className="error">{error}</p>}
         <li>
         Tem uma conta?
+        <Link to="/Login">
         <a>CONECTE-SE</a>
+        </Link>
       </li>
       </form>
     </Styles.Register>

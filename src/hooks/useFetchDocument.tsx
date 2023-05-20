@@ -5,7 +5,7 @@ import { doc, getDoc } from "firebase/firestore";
 
 
 export const useFetchDocument = (docCollection: any, id: any) => {
-  const [document, setDocument] = useState<boolean | null>(null);
+  const [document, setDocument] = useState<any>(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState<boolean | null>(null);
 
@@ -23,7 +23,7 @@ export const useFetchDocument = (docCollection: any, id: any) => {
 
         setDocument(docSnap.data());
         setLoading(false);
-      } catch (error) {
+      } catch (error: any) {
         console.log(error);
         setError(error.message);
         setLoading(true);

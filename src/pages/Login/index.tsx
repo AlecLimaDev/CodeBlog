@@ -1,15 +1,16 @@
 import * as Styles from "./Login.styled";
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState<boolean | string>("");
 
   const { login, error: authError, loading } = useAuthentication();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     setError("");
@@ -70,7 +71,9 @@ const Login = () => {
           <li>
             <p>OU</p>
             Não tem uma conta?
-            <a href="http://localhost:5173/register">CADASTRE-SE</a>
+            <Link to="/Register">
+            <a>CADASTRE-SE</a>
+            </Link>
           </li>
         </form>
       </Styles.Login>
