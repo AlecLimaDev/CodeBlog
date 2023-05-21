@@ -21,6 +21,7 @@ justify-content: center;
 .search_form input {
     margin-right: 10px;
     width: 50%;
+    border: 1px solid transparent;
 }
 
 .noposts {
