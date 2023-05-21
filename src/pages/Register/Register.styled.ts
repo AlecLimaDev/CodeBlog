@@ -3,6 +3,12 @@ import styled from "styled-components"
 export const Register = styled.div`
     text-align: center;
 
+    a {
+        color: #bf40bf;
+        font-weight: 800;
+        padding: 5px;
+      }
+
     li {
         list-style: none;
         padding-top: 15px;

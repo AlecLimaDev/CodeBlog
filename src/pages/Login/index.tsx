@@ -37,7 +37,7 @@ const Login = () => {
           <label>
             
             <h1>Coding
-            <img src="/src/assets/images/react.svg" alt="logo-react" />
+            <img src="src/assets/images/react.svg" alt="-" />
             </h1>
             <span>E-mail: </span>
             <input

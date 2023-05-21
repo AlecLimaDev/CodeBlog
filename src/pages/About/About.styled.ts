@@ -8,6 +8,10 @@ export const About = styled.div`
     flex-direction: column;
     align-items: center;
 
+    img {
+        max-width: 600px;
+    }
+
     h2 {
         text-transform: none;
         font-family: 'Pacifico', cursive;
