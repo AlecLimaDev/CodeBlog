@@ -42,10 +42,10 @@ const Register = () => {
   return (
     <Styles.Register>
       <form onSubmit={handleSubmit}>
-      <h1>Coding
-      <img src="src/assets/images/react.svg" alt="" />
-      </h1>
-      <h3>Cadastre-se para visualizar o conteúdo de outras pessoas.</h3>
+        <h1>Coding
+          <img src="src/assets/images/logo.png" alt="" />
+        </h1>
+        <h3>Cadastre-se para visualizar o conteúdo de outras pessoas.</h3>
         <label>
           <span>Nome: </span>
           <input
@@ -98,11 +98,11 @@ const Register = () => {
         )}
         {error && <p className="error">{error}</p>}
         <li>
-        Tem uma conta?
-        <Link to="/Login">
-        <a>CONECTE-SE</a>
-        </Link>
-      </li>
+          Tem uma conta?
+          <Link to="/Login">
+            <a>CONECTE-SE</a>
+          </Link>
+        </li>
       </form>
     </Styles.Register>
   );

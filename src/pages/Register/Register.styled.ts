@@ -3,6 +3,11 @@ import styled from "styled-components"
 export const Register = styled.div`
     text-align: center;
 
+    img {
+        max-width: 300px;
+        height: 150px;
+    }
+
     a {
         color: #bf40bf;
         font-weight: 800;

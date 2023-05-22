@@ -35,9 +35,9 @@ const Login = () => {
       <Styles.Login>
         <form onSubmit={handleSubmit}>
           <label>
-            
+
             <h1>Coding
-            <img src="src/assets/images/react.svg" alt="-" />
+              <img src="/src/assets/images/logo.png" alt="-" />
             </h1>
             <span>E-mail: </span>
             <input
@@ -72,7 +72,7 @@ const Login = () => {
             <p>OU</p>
             Não tem uma conta?
             <Link to="/Register">
-            <a>CADASTRE-SE</a>
+              <a>CADASTRE-SE</a>
             </Link>
           </li>
         </form>

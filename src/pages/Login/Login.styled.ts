@@ -6,7 +6,8 @@ export const Login = styled.div`
     text-align: center;
 
     img {
-      height: 58px;
+      max-width: 300px;
+      height: 150px;      
     }
    
 

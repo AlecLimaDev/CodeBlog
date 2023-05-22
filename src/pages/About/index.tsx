@@ -14,7 +14,7 @@ const About: React.FC = () => {
         que compartilham trechos de código, dando novas formas de pensar. Transformando sonhos em Realidade.
       </p>
       <p>Para colocar os seus trechos de código no blog você pode fazer a conversão da imagem em url da seguinte forma:</p>
-      <img src="/src/assets/videos/VideoDemonstrativo.gif" alt="Video-Explicando" />
+      <img src="/src/assets/videos/demo.gif" alt="Video-Explicando" />
       <p>Criado pelo Desenvolvedor Alec Lima.</p>
       <Link to="/posts/create" className="btn">
         Criar post
