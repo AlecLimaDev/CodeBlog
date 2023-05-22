@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export const CreatePost = styled.div`
     text-align: center;
-    
+    text-transform: none;
 
     h2 {
     font-size: 2.2em;
@@ -21,6 +21,14 @@ export const CreatePost = styled.div`
 
 form {
     border: 1px solid rgb(100, 99, 99);
+}
+
+
+
+@media screen and (max-width: 450px) { 
+    form {
+        max-width: 80%;
+    }
 }
 
 `

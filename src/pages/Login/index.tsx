@@ -35,9 +35,8 @@ const Login = () => {
       <Styles.Login>
         <form onSubmit={handleSubmit}>
           <label>
-
-            <h1>Coding
-              <img src="/src/assets/images/logo.png" alt="-" />
+            <h1>Entrar
+              {/* <img src="/src/assets/images/logo.svg" alt="-" /> */}
             </h1>
             <span>E-mail: </span>
             <input

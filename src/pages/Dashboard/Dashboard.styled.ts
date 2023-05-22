@@ -52,7 +52,7 @@ export const Dashboard = styled.div`
   export const PostHeader = styled.div`
      display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 80%;
     padding: 10px;
     border-bottom: 2px solid #ccc;
 
@@ -66,8 +66,8 @@ export const Dashboard = styled.div`
   
   export const PostRow = styled.div`
     display: flex;
-    justify-content: space-between;
-    width: 90%;
+    justify-content: space-evenly;
+    width: 80%;
     padding: 10px;
     align-items: center;
     border-bottom: 2px solid #eee;
@@ -92,7 +92,7 @@ export const Dashboard = styled.div`
     @media screen and (max-width: 450px) {
       display: flex;
       flex-flow: row wrap;
-      max-width: 100%;
+      max-width: 80%;
       padding: 0.8em;
 
       .btn {

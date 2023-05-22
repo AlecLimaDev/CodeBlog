@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-
-
 export const About = styled.div`
     text-align: center;
     display: flex;
@@ -36,6 +34,7 @@ export const About = styled.div`
         display: block;
         margin-top: 15px;
         padding: 10px 15px;
+        list-style: none;
     }
 
     .btn { 
