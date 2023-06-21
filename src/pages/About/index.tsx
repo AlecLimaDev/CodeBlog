@@ -18,7 +18,6 @@ const About: React.FC = () => {
         Video explicativo:
         <a href="https://www.youtube.com/watch?v=Ncl72JEiUZU" target="_blank">Visualizar</a>
       </li>
-      <img src="/src/assets/images/imGE.png" alt="Video-Explicando" />
       <p>Criado pelo Desenvolvedor Alec Lima.</p>
       <Link to="/posts/create" className="btn">
         Criar post

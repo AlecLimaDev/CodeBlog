@@ -4,6 +4,7 @@ import styled from "styled-components"
 export const CreatePost = styled.div`
     text-align: center;
     text-transform: none;
+    
 
     h2 {
     font-size: 2.2em;
