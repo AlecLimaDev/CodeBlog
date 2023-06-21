@@ -16,8 +16,8 @@ const About: React.FC = () => {
       <p>Para colocar os seus trechos de código na Coding você pode fazer a conversão da imagem em url da seguinte forma:</p>
       <li>
         Video explicativo:
-        <a href="https://www.youtube.com/watch?v=Ncl72JEiUZU" target="_blank">Visualizar</a>
       </li>
+      <img src="/src/assets/videos/demo.gif" alt="Video Explicativo" />
       <p>Criado pelo Desenvolvedor Alec Lima.</p>
       <Link to="/posts/create" className="btn">
         Criar post
@@ -25,5 +25,6 @@ const About: React.FC = () => {
     </Styles.About>
   );
 };
+
 
 export default About;

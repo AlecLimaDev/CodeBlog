@@ -10,6 +10,8 @@ export const About = styled.div`
 
     img {
         max-width: 600px;
+        margin-top: 20px;
+        border-radius: 5px;
     }
 
     h2 {
