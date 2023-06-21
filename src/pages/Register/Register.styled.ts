@@ -5,8 +5,9 @@ export const Register = styled.div`
 
     img {
         max-width: 300px;
-        height: 150px;
-    }
+        height: 30px;
+        padding: 5px;      
+      }
 
     a {
         color: #bf40bf;

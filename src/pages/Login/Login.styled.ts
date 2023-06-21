@@ -7,7 +7,8 @@ export const Login = styled.div`
 
     img {
       max-width: 300px;
-      height: 150px;      
+      height: 30px;
+      padding: 5px;      
     }
    
 
