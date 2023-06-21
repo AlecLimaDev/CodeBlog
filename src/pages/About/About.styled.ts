@@ -12,6 +12,10 @@ export const About = styled.div`
         max-width: 600px;
         margin-top: 20px;
         border-radius: 5px;
+
+        &:hover {
+            transform: scale(1.40);
+        }
     }
 
     h2 {
