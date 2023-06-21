@@ -1,5 +1,6 @@
 import * as Styles from "./About.styled";
 import { Link } from "react-router-dom";
+import video from '../../assets/videos/demo.gif'
 
 const About: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const About: React.FC = () => {
       <li>
         Video explicativo:
       </li>
-      <img src="/src/assets/videos/demo.gif" alt="Video Explicativo" />
+      <img src={video} alt="Video Explicativo" />
       <p>Criado pelo Desenvolvedor Alec Lima.</p>
       <Link to="/posts/create" className="btn">
         Criar post
