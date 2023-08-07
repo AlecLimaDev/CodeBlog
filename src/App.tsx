@@ -33,12 +33,11 @@ interface AppProps {
 }
 
 const App: React.FC<AppProps> = () => {
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState("dark");
 
   const toggleTheme = () => {
-    setTheme((color) => (color === "light" ? "dark" : "light"))
-  }
-
+    setTheme((color) => (color === "light" ? "dark" : "light"));
+  };
 
   const [user, setUser] = useState(undefined);
   const { auth } = useAuthentication();
@@ -51,16 +50,16 @@ const App: React.FC<AppProps> = () => {
   }, [auth]);
 
   if (loadingUser) {
-    return <>
-      <>Carregando...</>
-    </>
+    return (
+      <>
+        <>Carregando...</>
+      </>
+    );
   }
 
   return (
     <div className="App" id={theme}>
-      <AuthProvider
-        value={{ user, theme, toggleTheme}}
-      >
+      <AuthProvider value={{ user, theme, toggleTheme }}>
         <Router>
           <Navbar />
           <Styles.Container>
@@ -100,8 +99,6 @@ const App: React.FC<AppProps> = () => {
       </AuthProvider>
     </div>
   );
-}
+};
 
 export default App;
-
-

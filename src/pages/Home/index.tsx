@@ -12,7 +12,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e: any) => {
-    e.preventDefault();
+    e.preventDefault(true);
 
     if (query) {
       return navigate(`/search?q=${query}`);
