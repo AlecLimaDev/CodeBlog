@@ -6,7 +6,6 @@ import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useUpdateDocument } from "../../hooks/useUpateDocument";
 
-
 const EditPost: React.FC = () => {
   const { id }: any = useParams();
   const { document: post }: any = useFetchDocument("posts", id);
@@ -18,8 +17,6 @@ const EditPost: React.FC = () => {
   const [formError, setFormError] = useState("");
   const { updateDocument, response } = useUpdateDocument("posts");
   const { user }: any = useAuthValue();
-
-
 
   useEffect(() => {
     if (post) {
@@ -39,12 +36,14 @@ const EditPost: React.FC = () => {
     setFormError("");
 
     try {
-      new URL('');
+      new URL("");
     } catch (error) {
       setFormError("A imagem precisa ser uma URL.");
     }
 
-    const tagsArray: string = tags.split(",").map((tag: any) => tag.trim().toLowerCase());
+    const tagsArray: string = tags
+      .split(",")
+      .map((tag: any) => tag.trim().toLowerCase());
 
     if (!title || !image || !tags || !body) {
       setFormError("Por favor, preencha todos os campos!");
@@ -96,10 +95,7 @@ const EditPost: React.FC = () => {
               />
             </label>
             <p className="preview_title">Preview da imagem atual:</p>
-            <Styles.ImagePreview
-              src={post.image}
-              alt={post.title}
-            />
+            <Styles.ImagePreview src={post.image} alt={post.title} />
             <label>
               <span>Conteúdo:</span>
               <textarea
@@ -108,8 +104,7 @@ const EditPost: React.FC = () => {
                 placeholder="Insira o conteúdo do post"
                 onChange={(e) => setBody(e.target.value)}
                 value={body}
-              >
-              </textarea>
+              ></textarea>
             </label>
             <label>
               <span>Tags:</span>

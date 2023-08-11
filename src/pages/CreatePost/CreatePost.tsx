@@ -1,8 +1,8 @@
-import * as Styles from "./CreatePost.styled";
+import * as Styles from "./CreatePost.styled.ts";
 // import { URL } from 'node:url';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthValue } from "../../context/AuthContext";
+import { useAuthValue } from "../../context/AuthContext.tsx";
 import { useInsertDocument } from "../../hooks/useInsertDocument.tsx";
 
 const CreatePost = () => {
@@ -21,12 +21,14 @@ const CreatePost = () => {
     setFormError("");
 
     try {
-        new URL(''); 
+      new URL("");
     } catch (error) {
       setFormError("A imagem precisa ser uma URL.");
     }
 
-    const tagsArray: any = tags.split(",").map((tag: any) => tag.trim().toLowerCase());
+    const tagsArray: any = tags
+      .split(",")
+      .map((tag: any) => tag.trim().toLowerCase());
 
     if (!title || !image || !tags || !body) {
       setFormError("Por favor, preencha todos os campos!");
@@ -81,8 +83,7 @@ const CreatePost = () => {
             placeholder="Insira o conteúdo do post"
             onChange={(e) => setBody(e.target.value)}
             value={body}
-          >
-          </textarea>
+          ></textarea>
         </Styles.Label>
         <Styles.Label>
           <span>Tags:</span>

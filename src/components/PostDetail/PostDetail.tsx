@@ -1,7 +1,4 @@
-
-
-import * as Styles from "../PostDetail/PostDetail.styled"
-
+import * as Styles from "./PostDetail.styled";
 
 import { Link } from "react-router-dom";
 

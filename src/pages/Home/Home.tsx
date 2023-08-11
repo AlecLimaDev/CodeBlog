@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
-import PostDetail from "../../components/PostDetail";
+import PostDetail from "../../components/PostDetail/PostDetail";
 
 const Home = () => {
   const [query, setQuery] = useState("");
@@ -32,7 +32,8 @@ const Home = () => {
       </form>
       <div>
         {loading && <p>Carregando...</p>}
-        {posts && posts.map((post: any) => <PostDetail key={post.id} post={post} />)}
+        {posts &&
+          posts.map((post: any) => <PostDetail key={post.id} post={post} />)}
         {posts && posts.length === 0 && (
           <div className="noposts">
             <p>Não foram encontrados posts no Feed</p>

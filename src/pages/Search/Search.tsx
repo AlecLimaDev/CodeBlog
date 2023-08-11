@@ -3,7 +3,7 @@ import * as Styles from "./Search.styled";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useQuery } from "../../hooks/useQuery";
 
-import PostDetail from "../../components/PostDetail";
+import PostDetail from "../../components/PostDetail/PostDetail";
 import { Link } from "react-router-dom";
 
 const Search = () => {
@@ -23,7 +23,8 @@ const Search = () => {
             </Link>
           </div>
         )}
-        {posts && posts.map((post: any) => <PostDetail key={post.id} post={post} />)}
+        {posts &&
+          posts.map((post: any) => <PostDetail key={post.id} post={post} />)}
       </div>
     </Styles.SearchContainer>
   );

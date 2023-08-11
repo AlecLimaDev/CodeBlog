@@ -7,9 +7,12 @@ interface AuthProviderProps {
 
 const AuthContext = createContext({});
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children, value }) => {
+export const AuthProvider: React.FC<AuthProviderProps> = ({
+  children,
+  value,
+}) => {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+};
 
 export function useAuthValue() {
   return useContext(AuthContext);

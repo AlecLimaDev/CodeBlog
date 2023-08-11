@@ -15,17 +15,17 @@ import { useAuthentication } from "./hooks/useAuthentication.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import ReactSwitch from "react-switch";
 
-import Home from "./pages/Home/index";
-import About from "./pages/About/index";
-import Navbar from "./components/Navbar/index";
-import Footer from "./components/Footer/index";
-import Login from "./pages/Login/index";
-import Register from "./pages/Register/index";
-import CreatePost from "./pages/CreatePost/index";
-import Dashboard from "./pages/Dashboard/index";
-import Search from "./pages/Search/index";
-import Post from "./pages/Post/index";
-import EditPost from "./pages/EditPost/index";
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import CreatePost from "./pages/CreatePost/CreatePost";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Search from "./pages/Search/Search";
+import Post from "./pages/Post/Post";
+import EditPost from "./pages/EditPost/EditPost";
 
 interface AppProps {
   theme?: boolean | string;

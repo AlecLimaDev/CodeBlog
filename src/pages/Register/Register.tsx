@@ -3,7 +3,7 @@ import * as Styles from "./Register.styled";
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { Link } from "react-router-dom";
-import logoReact from '../../assets/images/react.png'
+import logoReact from "../../assets/images/react.png";
 
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
@@ -43,7 +43,8 @@ const Register = () => {
   return (
     <Styles.Register>
       <form onSubmit={handleSubmit}>
-        <h1>Cadastrar 
+        <h1>
+          Cadastrar
           <img src={logoReact} alt="logo" />
         </h1>
         <h3>Cadastre-se para visualizar o conteúdo de outras pessoas.</h3>

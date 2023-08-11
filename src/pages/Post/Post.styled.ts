@@ -1,47 +1,30 @@
-import styled from "styled-components"
-
+import styled from "styled-components";
 
 export const PostContainer = styled.div`
-    text-align: center;
+  text-align: center;
 
-    h3 {
+  h3 {
     margin-bottom: 0.2em;
-    }
+  }
 
-.tags { 
+  .tags {
     display: flex;
     justify-content: center;
-}
+  }
 
-
-p {
+  p {
     margin-right: 1em;
-}
+  }
 
-
-span {
+  span {
     font-weight: bold;
-}
+  }
 
-
-img {
+  img {
     width: 95%;
-}
+  }
 
-h1 {
+  h1 {
     text-align: center;
-}
-
-   
-`
-
-
-
-
-
-
-
-
- 
-
-
+  }
+`;

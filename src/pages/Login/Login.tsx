@@ -2,7 +2,7 @@ import * as Styles from "./Login.styled";
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { Link } from "react-router-dom";
-import logoReact from '../../assets/images/react.png'
+import logoReact from "../../assets/images/react.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -36,7 +36,8 @@ const Login = () => {
       <Styles.Login>
         <form onSubmit={handleSubmit}>
           <label>
-            <h1>Entrar
+            <h1>
+              Entrar
               <img src={logoReact} alt="Logo" />
             </h1>
             <span>E-mail: </span>

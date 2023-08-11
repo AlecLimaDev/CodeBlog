@@ -1,4 +1,4 @@
-import * as Styles from "./Dashboard.styled"
+import * as Styles from "./Dashboard.styled";
 
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,11 @@ const Dashboard = () => {
   const { user }: any = useAuthValue();
   const uid = user.uid;
 
-  const { documents: posts, loading }: any = useFetchDocuments("posts", null, uid);
+  const { documents: posts, loading }: any = useFetchDocuments(
+    "posts",
+    null,
+    uid
+  );
 
   const { deleteDocument } = useDeleteDocument("posts");
 

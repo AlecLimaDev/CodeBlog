@@ -1,23 +1,20 @@
-
 :root {
   --color-dark: red;
   --color-title: #9b9494;
 }
 
-body { 
+body {
   background-color: #f6fcff;
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
-
 
 input::placeholder,
 textarea::placeholder {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #aaa;
 }
-
 
 input:focus,
 textarea:focus {
@@ -30,17 +27,16 @@ nav button {
   background-color: transparent;
   border: none;
   /* color: #000; */
-  transition: .4s;
+  transition: 0.4s;
   font-size: 1em;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
 }
 
-a:hover, 
+a:hover,
 nav button:hover {
   color: #bbb;
 }
-
 
 form {
   max-width: 40%;
@@ -55,7 +51,7 @@ label {
 }
 
 label span {
-  margin-bottom: .3em;
+  margin-bottom: 0.3em;
   font-weight: bold;
   text-align: left;
 }
@@ -65,7 +61,7 @@ textarea {
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid #ccc;
-  padding: .8em 0;
+  padding: 0.8em 0;
   background-color: transparent;
   color: var(--color-title);
   font-weight: 700;
@@ -101,34 +97,29 @@ textarea {
   border-radius: 10px;
 }
 
-
 .btn.btn.btn-outline:hover {
   background-color: #000;
 }
 
 .btn.btn-danger:hover {
   background-color: #dc3545;
-} 
+}
 
 button[disabled] {
   background-color: #aaa;
 }
 
-
-
 #light {
-  background: #FFFFFF;
+  background: #ffffff;
   color: #000;
   text-transform: capitalize;
 }
 
 #dark {
   background: #252526;
-  color: white; 
+  color: white;
   text-transform: capitalize;
 }
-
-
 
 .switch {
   display: flex;
@@ -136,13 +127,13 @@ button[disabled] {
   height: 100px;
   justify-content: space-evenly;
   align-items: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Verdana, sans-serif;
 }
 
 .switch label {
   margin: 10px;
 }
-
 
 /* .container .error {
   color: #721c24;
@@ -152,4 +143,3 @@ button[disabled] {
   border-radius: 5px;
 }
    */
-

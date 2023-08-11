@@ -12,10 +12,14 @@ const Footer = () => {
           <a> Criar Conta</a>
         </Link>
         <Link to={"https://www.linkedin.com/in/aleclima-/"}>
-          <a href="https://www.linkedin.com/in/aleclima-/" target="_blank">Linkedin do Desenvolvedor</a>
+          <a href="https://www.linkedin.com/in/aleclima-/" target="_blank">
+            Linkedin do Desenvolvedor
+          </a>
         </Link>
         <Link to={"https://github.com/AlecLimaDev"}>
-          <a href="https://github.com/AlecLimaDev" target="_blank">GitHub</a>
+          <a href="https://github.com/AlecLimaDev" target="_blank">
+            GitHub
+          </a>
         </Link>
       </li>
     </Styles.Footer>
