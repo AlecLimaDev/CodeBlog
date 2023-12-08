@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { useState, useEffect } from "react";
-import { myChannel, playListItems } from "../../services/playListItems";
+import { myChannel } from "../../services/playListItems";
 import * as Styles from "./style";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";

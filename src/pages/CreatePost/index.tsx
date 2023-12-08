@@ -14,7 +14,7 @@ interface FormData {
 
 const CreatePost = () => {
   const { insertDocument, response } = useInsertDocument("posts");
-  const { user } = useAuthValue();
+  const { user }: any = useAuthValue();
   const navigate = useNavigate();
 
   const validationSchema = yup.object().shape({
