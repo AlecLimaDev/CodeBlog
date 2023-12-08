@@ -15,17 +15,18 @@ import { useAuthentication } from "./hooks/useAuthentication.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import ReactSwitch from "react-switch";
 
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
-import CreatePost from "./pages/CreatePost/CreatePost";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Search from "./pages/Search/Search";
-import Post from "./pages/Post/Post";
-import EditPost from "./pages/EditPost/EditPost";
+import Home from "./pages/Home/index.tsx";
+import About from "./pages/About/index.tsx";
+import Navbar from "./components/Navbar/index.tsx";
+import Footer from "./components/Footer/index.tsx";
+import Login from "./pages/Login/index.tsx";
+import Register from "./pages/Register/index.tsx";
+import CreatePost from "./pages/CreatePost/index.tsx";
+import Dashboard from "./pages/Dashboard/index.tsx";
+import Search from "./pages/Search/index.tsx";
+import Post from "./pages/Post/index.tsx";
+import EditPost from "./pages/EditPost/index.tsx";
+import Study from "./pages/Study/index.tsx";
 
 interface AppProps {
   theme?: boolean | string;
@@ -70,6 +71,7 @@ const App: React.FC<AppProps> = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/estudo" element={<Study />} />
               <Route path="/search" element={<Search />} />
               <Route path="/posts/:id" element={<Post />} />
               <Route

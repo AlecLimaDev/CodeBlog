@@ -23,7 +23,6 @@ const deleteReducer = (state: unknown, action: any) => {
 export const useDeleteDocument = (docCollection: any) => {
   const [response, dispatch] = useReducer(deleteReducer, initialState);
 
-  // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
   const checkCancelBeforeDispatch = (action: unknown) => {

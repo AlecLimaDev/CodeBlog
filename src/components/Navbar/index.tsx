@@ -4,7 +4,7 @@ import { useAuthentication } from "../../hooks/useAuthentication";
 
 import { useAuthValue } from "../../context/AuthContext";
 
-import * as Styles from "./Navbar.styled";
+import * as Styles from "./style";
 
 const Navbar = () => {
   const { user }: any = useAuthValue();
@@ -14,7 +14,6 @@ const Navbar = () => {
     <Styles.Navbar>
       <NavLink to="/" className="brand">
         <p>
-          {" "}
           Cod<span>Ing</span>
         </p>
       </NavLink>
@@ -33,6 +32,15 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Sobre
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/estudo"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Sessão de Estudo
           </NavLink>
         </li>
         {!user && (

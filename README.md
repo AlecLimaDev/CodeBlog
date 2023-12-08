@@ -15,7 +15,7 @@ npm install
 ```javascript
 Atualmente, configurei as regras de segurança para permitir
 a visualização do conteúdo somente para quem já estiver
-cadastrado no banco de dados.
+cadastrado no banco de dados. (Atualmente utilizo o Firebase)
 
 Portanto, cadastre-se!
 ```

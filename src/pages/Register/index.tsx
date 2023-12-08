@@ -1,4 +1,4 @@
-import * as Styles from "./Register.styled";
+import * as Styles from "./style";
 
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";

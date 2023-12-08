@@ -8,14 +8,10 @@ import {
 
 import { useState, useEffect } from "react";
 
-
-
 export const useAuthentication = () => {
-  const [error, setError] = useState<null | boolean | string >(null);
+  const [error, setError] = useState<null | boolean | string>(null);
   const [loading, setLoading] = useState<boolean | null | string>(null);
-
   const [cancelled, setCancelled] = useState<boolean>(false);
-
   const auth = getAuth();
 
   function checkIfIsCancelled() {

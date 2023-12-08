@@ -1,4 +1,4 @@
-import * as Styles from "./Dashboard.styled";
+import * as Styles from "./style";
 
 import { Link } from "react-router-dom";
 

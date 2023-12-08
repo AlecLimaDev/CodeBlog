@@ -1,15 +1,17 @@
-import * as Styles from "./PostDetail.styled";
+import * as Styles from "./style";
 
 import { Link } from "react-router-dom";
+
 
 const PostDetail = ({ post }: any) => {
   return (
     <Styles.PostDetail>
       <img src={post.image} alt={post.title} />
       <h2>{post.title}</h2>
+      <p>{post.body}</p>
       <p className="createdBy">Autor: {post.createdBy}</p>
       <div className="tags">
-        {post.tagsArray.map((tag: any) => (
+        {post.tagsArray.map((tag: string) => (
           <p key={tag}>
             <span>#</span>
             {tag}

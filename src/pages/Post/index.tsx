@@ -1,4 +1,4 @@
-import * as Styles from "./Post.styled";
+import * as Styles from "./style";
 
 import { useParams } from "react-router-dom";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
@@ -17,7 +17,7 @@ const Post = () => {
           <p>{post.body}</p>
           <h3>Esse post trata sobre: </h3>
           <div className="tags">
-            {post.tagsArray.map((tag: any) => (
+            {post.tagsArray.map((tag: string) => (
               <p key={tag}>
                 <span>#</span>
                 {tag}

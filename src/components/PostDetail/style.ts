@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const PostDetail = styled.div`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
+
+
   margin-bottom: 2em;
 
   img {
@@ -20,6 +21,8 @@ export const PostDetail = styled.div`
 
   p {
     font-family: sans-serif;
+    text-align: center;
+    padding: 0 2rem;
   }
 
   .tags {

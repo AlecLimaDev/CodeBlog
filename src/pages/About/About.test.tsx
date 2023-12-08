@@ -2,7 +2,7 @@
  */
 import { expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import About from "./About";
+import About from ".";
 import { BrowserRouter } from "react-router-dom";
 
 it("the title is visible", () => {
@@ -34,3 +34,15 @@ it("render name developer", () => {
     screen.getByText("Criado pelo Desenvolvedor Alec Lima.")
   ).toBeInTheDocument();
 });
+
+it("render name developer", () => {
+  render(
+    <BrowserRouter>
+      <About />
+    </BrowserRouter>
+  );
+  expect(
+    screen.getByText("Criar post")
+  ).toBeInTheDocument();
+});
+

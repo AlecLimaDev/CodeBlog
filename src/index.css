@@ -26,7 +26,6 @@ nav button {
   text-decoration: none;
   background-color: transparent;
   border: none;
-  /* color: #000; */
   transition: 0.4s;
   font-size: 1em;
   cursor: pointer;
@@ -135,11 +134,3 @@ button[disabled] {
   margin: 10px;
 }
 
-/* .container .error {
-  color: #721c24;
-  background-color: #f8d7da;
-  border: 1px solid #F5C6CB;
-  padding: 5px;
-  border-radius: 5px;
-}
-   */

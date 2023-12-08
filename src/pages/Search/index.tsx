@@ -1,10 +1,13 @@
-import * as Styles from "./Search.styled";
+import * as Styles from "./style";
 
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useQuery } from "../../hooks/useQuery";
-
-import PostDetail from "../../components/PostDetail/PostDetail";
+import PostDetail from "../../components/PostDetail";
 import { Link } from "react-router-dom";
+
+interface TPost {
+  id: string;
+}
 
 const Search = () => {
   const query = useQuery();
@@ -24,7 +27,7 @@ const Search = () => {
           </div>
         )}
         {posts &&
-          posts.map((post: any) => <PostDetail key={post.id} post={post} />)}
+          posts.map((post: TPost) => <PostDetail key={post.id} post={post} />)}
       </div>
     </Styles.SearchContainer>
   );

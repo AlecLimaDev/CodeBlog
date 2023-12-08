@@ -1,4 +1,4 @@
-import * as Styles from "./EditPost.styled";
+import * as Styles from "./style";
 
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
