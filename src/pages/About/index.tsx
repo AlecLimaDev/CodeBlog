@@ -1,10 +1,8 @@
-import { AxiosError } from "axios";
-import { useState, useEffect } from "react";
-import { myChannel } from "../../services/playListItems";
 import * as Styles from "./style";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { IFrame } from "../Study/style";
+import { useAbout } from "./hooks";
 
 interface Video {
   snippet: {
@@ -34,41 +32,12 @@ interface Video {
 }
 
 const About = () => {
-  const [apiData, setApiData] = useState<Video[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    const controller = new AbortController();
-    async function fetchData() {
-      try {
-        const response = await myChannel.get("/playlistItems", {
-          signal: controller.signal,
-        });
-        console.log(response.data.items);
-        setApiData(response.data.items);
-      } catch (error: unknown) {
-        if (error instanceof AxiosError) {
-          throw new Error("Error na requisição " + error);
-        }
-      }
-    }
-    fetchData();
-
-    return () => {
-      console.log("cancelando...");
-      controller.abort();
-      clearTimeout(timer);
-    };
-  }, []);
+  const { loading, apiData } = useAbout();
 
   return (
     <>
       <Styles.About>
-      {loading && <Loading />}
+        {loading && <Loading />}
         {!loading && (
           <>
             {apiData.length > 0 ? (
