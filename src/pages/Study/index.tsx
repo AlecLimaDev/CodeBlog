@@ -33,7 +33,7 @@ interface Video {
 
 const Study = () => {
   const [apiData, setApiData] = useState<Video[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -5,6 +5,10 @@ import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import PostDetail from "../../components/PostDetail";
 import Loading from "../../components/Loading";
 
+interface Post {
+  id: string;
+}
+
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
@@ -45,7 +49,7 @@ const Home = () => {
           </form>
           <div>
             {posts &&
-              posts.map((post: any) => <PostDetail key={post.id} post={post} />)}
+              posts.map((post: Post) => <PostDetail key={post.id} post={post} />)}
             {posts && posts.length === 0 && (
               <div className="noposts">
                 <p>Não foram encontrados posts no Feed</p>

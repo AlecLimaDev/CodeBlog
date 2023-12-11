@@ -65,6 +65,5 @@ export function useAbout() {
   return {
     loading,
     apiData,
-    
   }
 }

@@ -1,6 +1,6 @@
 import * as Styles from "./style";
 
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
@@ -10,11 +10,11 @@ const EditPost: React.FC = () => {
   const { id }: any = useParams();
   const { document: post }: any = useFetchDocument("posts", id);
 
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [body, setBody] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [image, setImage] = useState<string>("");
+  const [body, setBody] = useState<string>("");
   const [tags, setTags] = useState<any>([]);
-  const [formError, setFormError] = useState("");
+  const [formError, setFormError] = useState<string>("");
   const { updateDocument, response } = useUpdateDocument("posts");
   const { user }: any = useAuthValue();
 
@@ -31,7 +31,7 @@ const EditPost: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setFormError("");
 

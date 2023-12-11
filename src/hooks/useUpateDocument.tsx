@@ -1,6 +1,7 @@
 import { useState, useEffect, useReducer } from "react";
 import { db } from "../firebase/config";
 import { updateDoc, doc } from "firebase/firestore";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
   loading: null,
@@ -8,7 +9,7 @@ const initialState = {
 };
 
 
-const updateReducer = (state: any, action: { type: string; payload: any; }) => {
+const updateReducer = (state: any, action: { type: string; payload: PayloadAction; }) => {
   switch (action.type) {
     case "LOADING":
       return { loading: true, error: null };
