@@ -5,10 +5,6 @@ import { useAuthValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import * as yup from "yup";
 
-interface User {
-  uid: string;
-  displayName: string;
-}
 
 interface FormData {
   title: string;
@@ -19,7 +15,7 @@ interface FormData {
 
 const CreatePost = () => {
   const { insertDocument, response } = useInsertDocument("posts");
-  const { user }: User = useAuthValue();
+  const { user }: any = useAuthValue();
   const navigate = useNavigate();
 
   const validationSchema = yup.object().shape({
@@ -80,7 +76,7 @@ const CreatePost = () => {
           tags: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={async (values, actions) => {
+        onSubmit={async (values, actions: FormikHelpers<FormData>) => {
           await handleSubmit(values, actions);
         }}
       >
