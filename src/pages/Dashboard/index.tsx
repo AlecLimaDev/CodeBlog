@@ -2,25 +2,16 @@ import * as Styles from "./style";
 
 import { Link } from "react-router-dom";
 
-import { useAuthValue } from "../../context/AuthContext";
-import { useFetchDocuments } from "../../hooks/useFetchDocuments";
-import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+import { useDashboard } from "./hooks/useDashboard";
+
+
+interface tPost {
+  id: string; 
+  title: string;
+}
 
 const Dashboard = () => {
-  const { user }: any = useAuthValue();
-  const uid = user.uid;
-
-  const { documents: posts, loading }: any = useFetchDocuments(
-    "posts",
-    null,
-    uid
-  );
-
-  const { deleteDocument } = useDeleteDocument("posts");
-
-  if (loading) {
-    return <p>Carregando...</p>;
-  }
+  const { deleteDocument, posts } = useDashboard();
 
   return (
     <Styles.Dashboard>
@@ -41,7 +32,7 @@ const Dashboard = () => {
       )}
 
       {posts &&
-        posts.map((post: any) => (
+        posts.map((post: tPost) => (
           <Styles.PostRow key={post.id}>
             <p>{post.title}</p>
             <div className="actions">

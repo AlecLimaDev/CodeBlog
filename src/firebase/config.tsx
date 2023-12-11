@@ -4,16 +4,15 @@ import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAQpzs1kfZRIVhkTPTHY0O143VSoE_-Uss",
-  authDomain: "codeblog-d6e57.firebaseapp.com",
-  projectId: "codeblog-d6e57",
-  storageBucket: "codeblog-d6e57.appspot.com",
-  messagingSenderId: "884572793637",
-  appId: "1:884572793637:web:a8cb043a338cebe48d88cc",
-  measurementId: "G-SBTVLNTJN9"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
+  measurementId: import.meta.env.VITE_measurementId
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 

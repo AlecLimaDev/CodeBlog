@@ -1,35 +1,10 @@
 import * as Styles from "./style";
-import { useState, useEffect, FormEvent } from "react";
-import { useAuthentication } from "../../hooks/useAuthentication";
 import { Link } from "react-router-dom";
 import logoReact from "../../assets/images/react.png";
+import { useLogin } from "./hooks/useLogin";
 
 const Login = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [error, setError] = useState<boolean | string>("");
-
-  const { login, error: authError, loading } = useAuthentication();
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-
-    setError("");
-    const user = {
-      email,
-      password,
-    };
-
-    const res = await login(user);
-
-    console.log(res);
-  };
-
-  useEffect(() => {
-    if (authError) {
-      setError(authError);
-    }
-  }, [authError]);
+const { handleSubmit, email, setPassword, password, error, loading, setEmail } = useLogin()
 
   return (
     <>

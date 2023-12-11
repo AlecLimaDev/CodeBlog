@@ -1,9 +1,6 @@
 import * as Styles from "./style.ts";
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
-import { useNavigate } from "react-router-dom";
-import { useAuthValue } from "../../context/AuthContext";
-import { useInsertDocument } from "../../hooks/useInsertDocument";
-import * as yup from "yup";
+import { useCreatePost } from "./hooks/useCreatePost.ts";
 
 
 interface FormData {
@@ -14,54 +11,7 @@ interface FormData {
 }
 
 const CreatePost = () => {
-  const { insertDocument, response } = useInsertDocument("posts");
-  const { user }: any = useAuthValue();
-  const navigate = useNavigate();
-
-  const validationSchema = yup.object().shape({
-    title: yup.string().required("Campo obrigatório"),
-    image: yup.string().url("A imagem precisa ser uma URL válida."),
-    body: yup.string().required("Campo obrigatório"),
-    tags: yup.string().required("Campo obrigatório"),
-  });
-
-  const handleSubmit = (
-    values: FormData,
-    actions: FormikHelpers<FormData>
-  ): void => {
-    if (values.image) {
-      try {
-        new URL(values.image);
-      } catch (error: unknown) {
-        actions.setFieldError("image", "A imagem precisa ser uma URL válida.");
-        return;
-      }
-    }
-
-    const tagsArray = values.tags
-      .split(",")
-      .map((tag) => tag.trim().toLowerCase());
-
-    if (!values.title || !values.tags || !values.body) {
-      actions.setFieldError(
-        "formError",
-        "Por favor, preencha todos os campos!"
-      );
-      return;
-    }
-
-    insertDocument({
-      title: values.title,
-      image: values.image || "",
-      body: values.body,
-      tagsArray,
-      uid: user.uid,
-      createdBy: user.displayName,
-    });
-
-    navigate("/");
-  };
-
+const { handleSubmit, validationSchema, response } = useCreatePost() 
 
   return (
     <Styles.CreatePost>

@@ -1,18 +1,15 @@
 import * as Styles from "./style";
 
-import { useFetchDocuments } from "../../hooks/useFetchDocuments";
-import { useQuery } from "../../hooks/useQuery";
 import PostDetail from "../../components/PostDetail";
 import { Link } from "react-router-dom";
+import { useSearch } from "./hooks/useSearch";
 
 interface TPost {
   id: string;
 }
 
 const Search = () => {
-  const query = useQuery();
-  const search: any = query.get("q");
-  const { documents: posts }: any = useFetchDocuments("posts", search);
+ const { posts } = useSearch()
 
   return (
     <Styles.SearchContainer>
