@@ -1,26 +1,10 @@
 import * as Styles from "./style";
 
 import { Link } from "react-router-dom";
-
-import { useAuthValue } from "../../context/AuthContext";
-import { useFetchDocuments } from "../../hooks/useFetchDocuments";
-import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+import { useDashboard } from "./hooks/useDashboard";
 
 const Dashboard = () => {
-  const { user }: any = useAuthValue();
-  const uid = user.uid;
-
-  const { documents: posts, loading }: any = useFetchDocuments(
-    "posts",
-    null,
-    uid
-  );
-
-  const { deleteDocument } = useDeleteDocument("posts");
-
-  if (loading) {
-    return <p>Carregando...</p>;
-  }
+  const { posts, deleteDocument } = useDashboard();
 
   return (
     <Styles.Dashboard>

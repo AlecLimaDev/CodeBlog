@@ -92,11 +92,11 @@ export const useAuthentication = () => {
   }, []);
 
   return {
-    auth,
     createUser,
-    error,
-    loading,
     logout,
     login,
+    auth,
+    error,
+    loading,
   };
 };

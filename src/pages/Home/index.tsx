@@ -1,31 +1,11 @@
 import * as Styles from "./style";
-import { useNavigate, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+import { Link } from "react-router-dom";
 import PostDetail from "../../components/PostDetail";
 import Loading from "../../components/Loading";
+import { useHome } from "./hooks/useHome";
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
-  const [query, setQuery] = useState("");
-  const { documents: posts }: any = useFetchDocuments("posts"); 
-  const navigate = useNavigate();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (query) {
-      navigate(`/search?q=${query}`);
-    }
-  };
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false); 
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+const { handleSubmit, setQuery, posts, loading } = useHome()
 
   return (
     <Styles.Home>
