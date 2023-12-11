@@ -64,6 +64,5 @@ export const useCreatePost = () => {
     handleSubmit,
     validationSchema,
     response,
-
   };
 };

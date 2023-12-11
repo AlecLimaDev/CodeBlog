@@ -6,11 +6,7 @@ export const useDashboard = () => {
   const { user }: any = useAuthValue();
   const uid = user.uid;
 
-  const { documents: posts }: any = useFetchDocuments(
-    "posts",
-    null,
-    uid
-  );
+  const { documents: posts }: any = useFetchDocuments("posts", null, uid);
 
   const { deleteDocument } = useDeleteDocument("posts");
 

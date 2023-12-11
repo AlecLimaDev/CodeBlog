@@ -14,7 +14,6 @@ import { useAuthentication } from "./hooks/useAuthentication.tsx";
 
 import { AuthProvider } from "./context/AuthContext.tsx";
 import ReactSwitch from "react-switch";
-
 import Home from "./pages/Home/index.tsx";
 import About from "./pages/About/index.tsx";
 import Navbar from "./components/Navbar/index.tsx";
