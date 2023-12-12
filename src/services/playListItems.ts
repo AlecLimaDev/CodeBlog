@@ -4,9 +4,9 @@ export const playListItems = axios.create({
   baseURL: "https://www.googleapis.com/youtube/v3",
   params: {
     part: "snippet",
-    key: "AIzaSyAg9dnZDlLJ3owFV12bbbfLbb2TSWsCToU",
+    key: import.meta.env.VITE_YOUTUBE_KEY,
     maxResults: 20,
-    playlistId: "PLzILwKck99iYq60c9s_RcPLwMQkoXSMyP"
+    playlistId: import.meta.env.VITE_YOUTUBE_PLAYLISTITEMS
   },
 });
 
@@ -15,9 +15,9 @@ export const myChannel = axios.create({
   baseURL: "https://www.googleapis.com/youtube/v3",
   params: {
     part: "snippet",
-    key: "AIzaSyAg9dnZDlLJ3owFV12bbbfLbb2TSWsCToU",
+    key: import.meta.env.VITE_YOUTUBE_KEY,
     maxResults: 20,
-    playlistId: "PLHBpVy19b0HB3LTxdPuAjIX-vnDMAMUCn"
+    playlistId: import.meta.env.VITE_YOUTUBE_MYPLAYLIST
   },
 });
 

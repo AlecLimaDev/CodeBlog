@@ -34,6 +34,6 @@ export const useLogin = () => {
     email,
     password,
     loading,
-    error
+    error,
   };
 };

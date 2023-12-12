@@ -1,4 +1,4 @@
-import loading from "../../assets/images/loading.gif"
+import loading from "../../assets/images/load.gif"
 import { Container } from "./style"
 
 

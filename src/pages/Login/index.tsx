@@ -4,7 +4,15 @@ import logoReact from "../../assets/images/react.png";
 import { useLogin } from "./hooks/useLogin";
 
 const Login = () => {
-  const { handleSubmit, setEmail, setPassword, email, error, loading, password } = useLogin()
+  const {
+    handleSubmit,
+    setEmail,
+    setPassword,
+    email,
+    error,
+    loading,
+    password,
+  } = useLogin();
 
   return (
     <>

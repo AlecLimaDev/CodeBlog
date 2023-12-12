@@ -1,8 +1,6 @@
-import { AxiosError } from "axios";
-import { useState, useEffect } from "react";
-import { playListItems } from "../../services/playListItems";
 import { Container, IFrame } from "./style";
 import Loading from "../../components/Loading";
+import { useStudy } from "./hooks/useStudy";
 
 interface Video {
   snippet: {
@@ -32,36 +30,7 @@ interface Video {
 }
 
 const Study = () => {
-  const [apiData, setApiData] = useState<Video[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    const controller = new AbortController();
-    async function fetchData() {
-      try {
-        const response = await playListItems.get("/playlistItems", {
-          signal: controller.signal,
-        });
-        console.log(response.data.items);
-        setApiData(response.data.items);
-      } catch (error: unknown) {
-        if (error instanceof AxiosError) {
-          throw new Error("Error na requisição " + error);
-        }
-      }
-    }
-    fetchData();
-
-    return () => {
-      console.log("cancelando...");
-      controller.abort();
-      clearTimeout(timer);
-    };
-  }, []);
+  const { apiData, loading } = useStudy();
 
   return (
     <>
