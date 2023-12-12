@@ -4,6 +4,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 500px;
-   
+    height: 100vh;
+    width: 20px;
+
 `

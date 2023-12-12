@@ -1,4 +1,3 @@
-
 import { Container, IFrame } from "./style";
 import Loading from "../../components/Loading";
 import { useStudy } from "./hooks/useStudy";
@@ -31,7 +30,7 @@ interface Video {
 }
 
 const Study = () => {
-const { apiData, loading } = useStudy()  
+  const { apiData, loading } = useStudy();
 
   return (
     <>

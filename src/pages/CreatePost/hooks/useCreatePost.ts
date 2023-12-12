@@ -17,30 +17,28 @@ export const useCreatePost = () => {
   const navigate = useNavigate();
 
   const validationSchema = yup.object().shape({
-    title: yup.string().required("Campo obrigatório"),
-    image: yup.string().url("A imagem precisa ser uma URL válida."),
-    body: yup.string().required("Campo obrigatório"),
-    tags: yup.string().required("Campo obrigatório"),
+    title: yup.string().required("Título obrigatório obrigatório"),
+    image: yup.string().url("A imagem precisa ser uma URL."),
+    body: yup.string().required("Texto contextualizando obrigatório"),
+    tags: yup.string().required("Tags obrigatória"),
   });
 
-  const handleSubmit = (
+  const handleSubmit = async (
     values: FormData,
     actions: FormikHelpers<FormData>
-  ): void => {
-    if (values.image) {
-      try {
-        new URL(values.image);
-      } catch (error: unknown) {
-        actions.setFieldError("image", "A imagem precisa ser uma URL válida.");
-        return;
-      }
+  ): Promise<void> => {
+    try {
+      new URL(values.image || "");
+    } catch (error: unknown) {
+      actions.setFieldError("image", "A imagem precisa ser uma URL.");
+      return;
     }
 
     const tagsArray = values.tags
       .split(",")
       .map((tag) => tag.trim().toLowerCase());
 
-    if (!values.title || !values.tags || !values.body) {
+    if (!values.title || !values.image || !values.tags || !values.body) {
       actions.setFieldError(
         "formError",
         "Por favor, preencha todos os campos!"
@@ -59,7 +57,6 @@ export const useCreatePost = () => {
 
     navigate("/");
   };
-
   return {
     handleSubmit,
     validationSchema,
