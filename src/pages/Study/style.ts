@@ -40,8 +40,9 @@ export const Container = styled.div`
 
 
 export const IFrame = styled.iframe`
-width: 1024px;
-height: 720px;
-border-radius: 10px;
-margin-top: 15px; 
+        max-width: 1024px;
+        object-fit: cover;
+        max-height: 720px;
+        border-radius: 10px;
+        margin-top: 15px; 
 `
