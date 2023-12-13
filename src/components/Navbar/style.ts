@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const Navbar = styled.nav`
-  padding: 0.5em 2em;
-  list-style: none;
-  height: 100vh;
-  width: 200px;
-  position: fixed;
-  text-align: center;
-  font-size: 20px;
-  background-color: #252526;
-  border-right: 5px solid white;
+      padding: 0.5em 2em;
+      list-style: none;
+      height: 100vh;
+      width: 200px;
+      position: fixed;
+      text-align: center;
+      font-size: 20px;
+      background-color: #252526;
+      border-right: 5px solid white;
 
 
           img {
@@ -62,8 +62,7 @@ export const Navbar = styled.nav`
           @media screen and (max-width: 535px) {
             max-width: 100%;
             display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+            flex-direction: column;
           }
 `;
 
@@ -76,42 +75,3 @@ export const Section = styled.section`
       z-index: 5;
 `;
 
-export const LinkList = styled.ul`
-      display: block;
-      position: absolute;
-      left: 0;
-      list-style: none;
-
-                li {
-                  margin: 10px;
-                }
-
-                li a {
-                  padding: 0.4em 0.6em;
-                  color: #bf40bf;
-                  font-weight: 700;
-                }
-
-                .active {
-                  background-color: #0000ff;
-                  color: #fff;
-                }
-
-                button {
-                  color: #e32d40;
-                  font-weight: 500;
-                }
-
-                @media screen and (max-width: 535px) {
-                  display: wrap;
-                  flex-wrap: wrap;
-                  justify-content: center;
-                  margin-right: 0.8em;
-                  letter-spacing: 0.1em;
-                  margin-bottom: 1em;
-
-                  li a {
-                    padding: 0.2em 3em;
-                  }
-                }
-`;
