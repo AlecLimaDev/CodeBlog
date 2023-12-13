@@ -13,7 +13,8 @@ export const PostContainer = styled.div`
   }
 
   p {
-    margin-right: 1em;
+    text-align: start;
+    margin: 70px;
   }
 
   span {

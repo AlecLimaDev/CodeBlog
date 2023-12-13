@@ -10,7 +10,6 @@ const { post, loading } = usePost()
       {post && (
         <>
           <h1>{post.title}</h1>
-          <img src={post.image} alt={post.title} />
           <p>{post.body}</p>
           <h3>Esse post trata sobre: </h3>
           <div className="tags">

@@ -111,13 +111,13 @@ button[disabled] {
 #light {
   background: #ffffff;
   color: #000;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 #dark {
   background: #252526;
   color: white;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 .switch {

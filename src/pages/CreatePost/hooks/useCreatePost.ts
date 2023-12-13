@@ -27,22 +27,21 @@ export const useCreatePost = () => {
     values: FormData,
     actions: FormikHelpers<FormData>
   ): Promise<void> => {
-    try {
-      new URL(values.image || "");
-    } catch (error: unknown) {
-      actions.setFieldError("image", "A imagem precisa ser uma URL.");
-      return;
+    if (values.image) {
+      try {
+        new URL(values.image);
+      } catch (error: unknown) {
+        actions.setFieldError('image', 'A imagem precisa ser uma URL válida.');
+        return;
+      }
     }
 
     const tagsArray = values.tags
       .split(",")
       .map((tag) => tag.trim().toLowerCase());
 
-    if (!values.title || !values.image || !values.tags || !values.body) {
-      actions.setFieldError(
-        "formError",
-        "Por favor, preencha todos os campos!"
-      );
+    if (!values.title || !values.tags || !values.body) {
+      actions.setFieldError('formError', 'Por favor, preencha todos os campos!');
       return;
     }
 

@@ -16,12 +16,12 @@ export const PostDetail = styled.div`
   }
 
   h2 {
-    margin-bottom: 0.4em;
+    text-align: start;  
   }
 
   p {
     font-family: sans-serif;
-    text-align: center;
+    text-align: start ;
     padding: 0 2rem;
   }
 
@@ -101,10 +101,9 @@ export const PostDetail = styled.div`
       }
 
       .createdBy {
-        font-style: italic;
         font-size: 1em;
         margin-bottom: 1em;
-        text-align: center;
+        text-align: start;
       }
 
       span {
@@ -112,7 +111,7 @@ export const PostDetail = styled.div`
       }
 
       .post_detail {
-        text-align: center;
+        text-align: start;
       }
 
       .tags {
