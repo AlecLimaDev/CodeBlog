@@ -37,11 +37,11 @@ nav button:hover {
   color: #bbb;
 }
 
-form {
+/* form {
   max-width: 40%;
   margin: 0 auto;
   padding: 15px;
-}
+} */
 
 label {
   display: flex;

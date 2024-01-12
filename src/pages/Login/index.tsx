@@ -1,14 +1,36 @@
-import * as Styles from "./style";
+import * as S from "./style";
 import { Link } from "react-router-dom";
 import logoReact from "../../assets/images/react.png";
 import { useLogin } from "./hooks/useLogin";
 
 const Login = () => {
-const { handleSubmit, email, setPassword, password, error, loading, setEmail } = useLogin()
+  const {
+    handleSubmit,
+    email,
+    setPassword,
+    password,
+    error,
+    loading,
+    setEmail,
+  } = useLogin();
 
   return (
     <>
-      <Styles.Login>
+      <S.Login>
+        <form>
+          <ul>
+            <h1>Bem-Vindo</h1>
+            <h3>Para escrever os seus artigos é necessário primeiro criar a conta.</h3>
+            <img src={logoReact} alt="" />
+            <li>
+            <p>OU</p>
+            Não tem uma conta?
+            <Link to="/Register">
+              <a>CADASTRE-SE</a>
+            </Link>
+          </li>
+          </ul>
+        </form>
         <form onSubmit={handleSubmit}>
           <label>
             <h1>
@@ -36,7 +58,6 @@ const { handleSubmit, email, setPassword, password, error, loading, setEmail } =
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <label></label>
           {!loading && <button className="btn">Entrar</button>}
           {loading && (
             <button className="btn" disabled>
@@ -44,15 +65,8 @@ const { handleSubmit, email, setPassword, password, error, loading, setEmail } =
             </button>
           )}
           {error && <p className="error">{error}</p>}
-          <li>
-            <p>OU</p>
-            Não tem uma conta?
-            <Link to="/Register">
-              <a>CADASTRE-SE</a>
-            </Link>
-          </li>
         </form>
-      </Styles.Login>
+      </S.Login>
     </>
   );
 };

@@ -1,12 +1,11 @@
-import * as Styles from "./style";
+import * as S from "./style";
 
 import { Link } from "react-router-dom";
 
 import { useDashboard } from "./hooks/useDashboard";
 
-
 interface tPost {
-  id: string; 
+  id: string;
   title: string;
 }
 
@@ -14,26 +13,26 @@ const Dashboard = () => {
   const { deleteDocument, posts } = useDashboard();
 
   return (
-    <Styles.Dashboard>
+    <S.Dashboard>
       <h2>Dashboard</h2>
       <p>Gerencie os seus posts</p>
       {posts && posts.length === 0 ? (
-        <Styles.NoPosts>
+        <S.NoPosts>
           <p>Não foram encontrados posts</p>
           <Link to="/posts/create" className="btn">
             Criar primeiro post
           </Link>
-        </Styles.NoPosts>
+        </S.NoPosts>
       ) : (
-        <Styles.PostHeader>
+        <S.PostHeader>
           <span>Título</span>
           <span>Ações</span>
-        </Styles.PostHeader>
+        </S.PostHeader>
       )}
 
       {posts &&
         posts.map((post: tPost) => (
-          <Styles.PostRow key={post.id}>
+          <S.PostRow key={post.id}>
             <p>{post.title}</p>
             <div className="actions">
               <Link to={`/posts/${post.id}`} className="btn btn-outline">
@@ -49,9 +48,9 @@ const Dashboard = () => {
                 Excluir
               </button>
             </div>
-          </Styles.PostRow>
+          </S.PostRow>
         ))}
-    </Styles.Dashboard>
+    </S.Dashboard>
   );
 };
 

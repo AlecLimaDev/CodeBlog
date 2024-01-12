@@ -27,6 +27,10 @@ export const Register = styled.div`
 
   form {
     border: 1px solid rgb(100, 99, 99);
+    width: 40%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
   }
 
   h1 {

@@ -1,33 +1,32 @@
 import { AxiosError } from "axios";
 import { useState, useEffect } from "react";
-import { myChannel } from "../../../services/playListItems";
-
+import { myChannel } from "../../../Youtube/services/MyChannel/fetch-data-base-url";
 interface Video {
-    snippet: {
-      publishedAt: string;
-      position: number;
-      id: number;
-      videoOwnerChannelId: string;
-      channelId: string;
-      title: string;
-      description: string;
-      playlistId: string;
-      resourceId: {
-        videoId: string;
+  snippet: {
+    publishedAt: string;
+    position: number;
+    id: number;
+    videoOwnerChannelId: string;
+    channelId: string;
+    title: string;
+    description: string;
+    playlistId: string;
+    resourceId: {
+      videoId: string;
+    };
+    thumbnails: {
+      default: {
+        width: number;
+        height: number;
       };
-      thumbnails: {
-        default: {
-          width: number;
-          height: number;
-        };
-        maxres: {
-          url: string;
-          height: number;
-          width: number;
-        };
+      maxres: {
+        url: string;
+        height: number;
+        width: number;
       };
     };
-  }
+  };
+}
 
 export function useAbout() {
   const [apiData, setApiData] = useState<Video[]>([]);
@@ -41,11 +40,11 @@ export function useAbout() {
     const controller = new AbortController();
     async function fetchData() {
       try {
-        const response = await myChannel.get("/playlistItems", {
+        const { data } = await myChannel.get("/playlistItems", {
           signal: controller.signal,
         });
-        console.log(response.data.items);
-        setApiData(response.data.items);
+        console.log(data.items);
+        setApiData(data.items);
       } catch (error: unknown) {
         if (error instanceof AxiosError) {
           throw new Error("Error na requisição " + error);
@@ -61,9 +60,8 @@ export function useAbout() {
     };
   }, []);
 
-
   return {
     loading,
     apiData,
-  }
+  };
 }

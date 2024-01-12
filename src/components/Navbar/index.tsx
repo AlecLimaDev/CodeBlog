@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <>
       <S.Section>
-        <AiOutlineAlignCenter onClick={toggleMenu} to="/" className="brand" />
+        <AiOutlineAlignCenter onClick={toggleMenu}/>
         {isMenuOpen && (
           <S.Navbar onClick={closeMenu}>
             <img src={Logo} alt="Foto" />

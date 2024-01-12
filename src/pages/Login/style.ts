@@ -1,7 +1,17 @@
 import styled from "styled-components";
 
 export const Login = styled.div`
-  text-align: center;
+display: flex;
+
+
+form ul h1 {
+  font-size: 40px;
+}
+
+form ul img {
+  max-width: 600px;
+  height: 100px;
+}
 
   img {
     max-width: 300px;
@@ -11,18 +21,21 @@ export const Login = styled.div`
 
   p {
     text-transform: uppercase;
+    text-align: center;
   }
 
   h1 {
     font-family: "Pacifico", cursive;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-weight: 300;
+    text-align: center;
   }
 
   form {
     border: 1px solid rgb(100, 99, 99);
+    width: 40%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
   }
 
   button {

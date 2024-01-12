@@ -28,7 +28,6 @@ export const useLogin = () => {
     }
   }, [authError]);
 
-  
   return {
     handleSubmit,
     setPassword,

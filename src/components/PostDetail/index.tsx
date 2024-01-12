@@ -2,7 +2,6 @@ import * as Styles from "./style";
 
 import { Link } from "react-router-dom";
 
-
 const PostDetail = ({ post }: any) => {
   return (
     <Styles.PostDetail>

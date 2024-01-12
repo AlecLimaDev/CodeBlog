@@ -41,7 +41,7 @@ export const useEditPost = () => {
 
     const tagsArray: string = tags
       .split(",")
-      .map((tag: any) => tag.trim().toLowerCase());
+      .map((tag: string) => tag.trim().toLowerCase());
 
     if (!title || !image || !tags || !body) {
       setFormError("Por favor, preencha todos os campos!");

@@ -32,7 +32,7 @@ interface AppProps {
   className?: string;
 }
 
-const App: React.FC<AppProps> = () => {
+const App = () => {
   const [theme, setTheme] = useState("dark");
 
   const toggleTheme = () => {

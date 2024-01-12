@@ -17,7 +17,7 @@ export const useCreatePost = () => {
   const navigate = useNavigate();
 
   const validationSchema = yup.object().shape({
-    title: yup.string().required("Título obrigatório obrigatório"),
+    title: yup.string().required("Título obrigatório"),
     image: yup.string().url("A imagem precisa ser uma URL."),
     body: yup.string().required("Texto contextualizando obrigatório"),
     tags: yup.string().required("Tags obrigatória"),
@@ -36,7 +36,7 @@ export const useCreatePost = () => {
       }
     }
 
-    const tagsArray = values.tags
+    const tagsArray: unknown = values.tags
       .split(",")
       .map((tag) => tag.trim().toLowerCase());
 

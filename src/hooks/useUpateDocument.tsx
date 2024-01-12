@@ -8,8 +8,11 @@ const initialState = {
   error: null,
 };
 
+const updateReducer = (
+  state: unknown,
+  action: { type: string; payload: PayloadAction }
+) => {
 
-const updateReducer = (state: any, action: { type: string; payload: PayloadAction; }) => {
   switch (action.type) {
     case "LOADING":
       return { loading: true, error: null };
@@ -20,6 +23,7 @@ const updateReducer = (state: any, action: { type: string; payload: PayloadActio
     default:
       return state;
   }
+  
 };
 
 export const useUpdateDocument = (docCollection: string) => {
@@ -27,14 +31,16 @@ export const useUpdateDocument = (docCollection: string) => {
 
   const [cancelled, setCancelled] = useState(false);
 
-
-  const checkCancelBeforeDispatch = (action: { type: any; payload?: any; }) => {
+  const checkCancelBeforeDispatch = (action: {
+    type: string;
+    payload?: any;
+  }) => {
     if (!cancelled) {
       dispatch(action);
     }
   };
 
-  const updateDocument = async (id: string, data: any) => {
+  const updateDocument = async (id: string, data: null) => {
     checkCancelBeforeDispatch({ type: "LOADING" });
 
     try {

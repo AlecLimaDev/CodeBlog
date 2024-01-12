@@ -1,13 +1,12 @@
-import loading from "../../assets/images/load.gif"
-import { Container } from "./style"
-
+import loading from "../../assets/images/loading.gif";
+import { Container } from "./style";
 
 const Loading = () => {
   return (
     <Container>
-        <img src={loading} alt="loading..." />
+      <img src={loading} alt="loading..." />
     </Container>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;
