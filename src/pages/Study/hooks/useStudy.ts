@@ -1,7 +1,6 @@
 import { AxiosError } from "axios";
 import { useState, useEffect } from "react";
-import { playListItems } from "../../../services/playListItems";
-
+import { JS_TS_RXJS } from "../../../Youtube/services/JavaScript/fetch-data-base-url";
 interface Video {
   snippet: {
     publishedAt: string;
@@ -32,6 +31,7 @@ interface Video {
 export const useStudy = () => {
   const [apiData, setApiData] = useState<Video[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,11 +41,11 @@ export const useStudy = () => {
     const controller = new AbortController();
     async function fetchData() {
       try {
-        const response = await playListItems.get("/playlistItems", {
+        const { data } = await JS_TS_RXJS.get("/playlistItems", {
           signal: controller.signal,
         });
-        console.log(response.data.items);
-        setApiData(response.data.items);
+        console.log(data.items);
+        setApiData(data.items);
       } catch (error: unknown) {
         if (error instanceof AxiosError) {
           throw new Error("Error na requisição " + error);
@@ -61,8 +61,16 @@ export const useStudy = () => {
     };
   }, []);
 
+  const filteredStudy = apiData.filter(
+    (item: Video) =>
+      search.length === 0 || item.snippet.title.toLowerCase().includes(search)
+  );
+
   return {
     apiData,
     loading,
+    search,
+    setSearch,
+    filteredStudy,
   };
 };

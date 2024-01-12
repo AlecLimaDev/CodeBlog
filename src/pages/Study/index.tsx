@@ -1,6 +1,7 @@
 import { Container, IFrame } from "./style";
 import Loading from "../../components/Loading";
 import { useStudy } from "./hooks/useStudy";
+import { SearchInput } from "../../components/Input/SearchInput/index";
 
 interface Video {
   snippet: {
@@ -30,16 +31,22 @@ interface Video {
 }
 
 const Study = () => {
-  const { apiData, loading } = useStudy();
+  const { apiData, loading, search, setSearch, filteredStudy } = useStudy();
 
   return (
     <>
       <Container>
+        <SearchInput
+          placeholder="Buscar..."
+          name="search"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
         {loading && <Loading />}
         {!loading && (
           <>
-            {apiData.length > 0 ? (
-              apiData.map((video: Video, index) => (
+            {filteredStudy.length > 0 ? (
+              filteredStudy.map((video: Video, index) => (
                 <section key={index}>
                   <IFrame
                     title="PlayListItem"
@@ -47,6 +54,7 @@ const Study = () => {
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
+
                   <h3>{video.snippet.title}</h3>
                 </section>
               ))
