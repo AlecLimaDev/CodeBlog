@@ -9,7 +9,7 @@ import {
 
 import { onAuthStateChanged } from "firebase/auth";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuthentication } from "./hooks/useAuthentication.tsx";
 
 import { AuthProvider } from "./context/AuthContext.tsx";
@@ -26,11 +26,6 @@ import Search from "./pages/Search/index.tsx";
 import Post from "./pages/Post/index.tsx";
 import EditPost from "./pages/EditPost/index.tsx";
 import Study from "./pages/Study/index.tsx";
-
-interface AppProps {
-  theme?: boolean | string;
-  className?: string;
-}
 
 const App = () => {
   const [theme, setTheme] = useState("dark");

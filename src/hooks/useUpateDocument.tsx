@@ -1,18 +1,21 @@
 import { useState, useEffect, useReducer } from "react";
 import { db } from "../firebase/config";
 import { updateDoc, doc } from "firebase/firestore";
-import { PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+interface UpdateState {
+  loading: boolean | null;
+  error: string | null;
+}
+
+const initialState: UpdateState = {
   loading: null,
   error: null,
 };
 
 const updateReducer = (
-  state: unknown,
-  action: { type: string; payload: PayloadAction }
-) => {
-
+  state: UpdateState,
+  action: { type: string; payload?: any }
+): UpdateState => {
   switch (action.type) {
     case "LOADING":
       return { loading: true, error: null };
@@ -23,11 +26,10 @@ const updateReducer = (
     default:
       return state;
   }
-  
 };
 
 export const useUpdateDocument = (docCollection: string) => {
-  const [response, dispatch]: any = useReducer(updateReducer, initialState);
+  const [response, dispatch] = useReducer(updateReducer, initialState);
 
   const [cancelled, setCancelled] = useState(false);
 
@@ -40,17 +42,16 @@ export const useUpdateDocument = (docCollection: string) => {
     }
   };
 
-  const updateDocument = async (id: string, data: null) => {
+  const updateDocument = async (id: string, data: null | any) => {
     checkCancelBeforeDispatch({ type: "LOADING" });
 
     try {
-      const docRef = await doc(db, docCollection, id);
+      const docRef = doc(db, docCollection, id);
 
-      const updateDocument = await updateDoc(docRef, data);
+      await updateDoc(docRef, data);
 
       checkCancelBeforeDispatch({
         type: "UPDATED_DOC",
-        payload: updateDocument,
       });
     } catch (error: any) {
       checkCancelBeforeDispatch({ type: "ERROR", payload: error.message });
