@@ -1,4 +1,4 @@
-import * as Styles from "./style.ts";
+import * as S from "./style.ts";
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
 import { useCreatePost } from "./hooks/useCreatePost.ts";
 
@@ -14,7 +14,7 @@ const CreatePost = () => {
 const { handleSubmit, validationSchema, response } = useCreatePost() 
 
   return (
-    <Styles.CreatePost>
+    <S.CreatePost>
       <h2>Criar Post</h2>
       <img src="{src/assets/images/react.png}" alt="" />
       <p>Escreva sobre o que quiser e compartilhe o seu conhecimento!</p>
@@ -31,7 +31,7 @@ const { handleSubmit, validationSchema, response } = useCreatePost()
         }}
       >
         <Form>
-          <Styles.Label>
+          <S.Label>
             <span>Título:</span>
             <Field
               type="text"
@@ -39,18 +39,18 @@ const { handleSubmit, validationSchema, response } = useCreatePost()
               required
               placeholder="Pense em um bom título..."
             />
-            <ErrorMessage name="title" component="p" className="error" />
-          </Styles.Label>
-          <Styles.Label>
+            <ErrorMessage name="title" className="error" />
+          </S.Label>
+          <S.Label>
             <span>URL da imagem:</span>
             <Field
               type="text"
               name="image"
               placeholder="Insira uma imagem que representa o seu post"
             />
-            <ErrorMessage name="image" component="p" className="error" />
-          </Styles.Label>
-          <Styles.Label>
+            <ErrorMessage name="image" className="error" />
+          </S.Label>
+          <S.Label>
             <span>Conteúdo:</span>
             <Field
               type="textarea"
@@ -58,9 +58,9 @@ const { handleSubmit, validationSchema, response } = useCreatePost()
               required
               placeholder="Insira o conteúdo do post"
             />
-            <ErrorMessage name="body" component="p" className="error" />
-          </Styles.Label>
-          <Styles.Label>
+            <ErrorMessage name="body" className="error" />
+          </S.Label>
+          <S.Label>
             <span>Tags:</span>
             <Field
               type="text"
@@ -68,8 +68,8 @@ const { handleSubmit, validationSchema, response } = useCreatePost()
               required
               placeholder="Insira as tags separadas por vírgula"
             />
-            <ErrorMessage name="tags" component="p" className="error" />
-          </Styles.Label>
+            <ErrorMessage name="tags" className="error" />
+          </S.Label>
           {!response.loading && (
             <button className="btn" type="submit">
               Cadastrar
@@ -81,10 +81,10 @@ const { handleSubmit, validationSchema, response } = useCreatePost()
             </button>
           )}
           {response.error && <p className="error">{response.error}</p>}
-          <ErrorMessage name="formError" component="p" className="error" />
+          <ErrorMessage name="formError" className="error" />
         </Form>
       </Formik>
-    </Styles.CreatePost>
+    </S.CreatePost>
   );
 };
 
