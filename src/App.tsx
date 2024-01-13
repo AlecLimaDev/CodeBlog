@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 
 import { onAuthStateChanged } from "firebase/auth";
-
 import { useState, useEffect } from "react";
 import { useAuthentication } from "./hooks/useAuthentication.tsx";
 

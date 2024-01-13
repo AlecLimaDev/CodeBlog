@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container, IFrame } from "./style";
 import Loading from "../../components/Loading";
 import { useStudy } from "./hooks/useStudy";
@@ -32,6 +33,14 @@ interface Video {
 
 const Study = () => {
   const { apiData, loading, search, setSearch, filteredStudy } = useStudy();
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredStudy.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -45,8 +54,8 @@ const Study = () => {
         {loading && <Loading />}
         {!loading && (
           <>
-            {filteredStudy.length > 0 ? (
-              filteredStudy.map((video: Video, index) => (
+            {currentItems.length > 0 ? (
+              currentItems.map((video: Video, index) => (
                 <section key={index}>
                   <IFrame
                     title="PlayListItem"
@@ -60,11 +69,22 @@ const Study = () => {
               ))
             ) : (
               <div>
-                {apiData.map((video: Video) => (
-                  <p>{video.snippet.id}</p>
-                ))}
+                {apiData
+                  .slice(indexOfFirstItem, indexOfLastItem)
+                  .map((video: Video) => (
+                    <p key={video.snippet.id}>{video.snippet.id}</p>
+                  ))}
               </div>
             )}
+            <div>
+              {Array.from({
+                length: Math.ceil(filteredStudy.length / itemsPerPage),
+              }).map((_, index) => (
+                <button key={index} onClick={() => paginate(index + 1)}>
+                  {index + 1}
+                </button>
+              ))}
+            </div>
           </>
         )}
       </Container>

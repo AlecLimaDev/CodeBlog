@@ -5,7 +5,14 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 3rem 2rem;
 
-  
+
+          
+            button {
+                margin: 8px;
+                font-family: sans-serif;
+                cursor: pointer;
+            }
+
 
             section {
                 display: flex;        
@@ -13,7 +20,6 @@ export const Container = styled.div`
                 gap: 20px;
             }
             
-
                 img {
                     max-width: 600px;
                     margin-top: 20px;

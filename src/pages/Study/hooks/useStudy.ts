@@ -1,6 +1,10 @@
 import { AxiosError } from "axios";
 import { useState, useEffect } from "react";
 import { JS_TS_RXJS } from "../../../Youtube/services/JavaScript/fetch-data-base-url";
+import { ComputerScience } from "../../../Youtube/services/ComputerScience/fetch-data-base-url";
+import { discreteMathematic } from "../../../Youtube/services/Math/fetch-data-url";
+import { Java } from "../../../Youtube/services/Java/fetch-data-base-url";
+
 interface Video {
   snippet: {
     publishedAt: string;
@@ -28,46 +32,77 @@ interface Video {
   };
 }
 
+const fetchData = async (apiClient: any, controller: AbortController) => {
+  try {
+    const { data } = await apiClient.get("/playlistItems", {
+      signal: controller.signal,
+    });
+    return data.items;
+  } catch (error: unknown) {
+    if (error instanceof AxiosError) {
+      throw new Error("Error na requisição " + error);
+    }
+    return [];
+  }
+};
+
 export const useStudy = () => {
-  const [apiData, setApiData] = useState<Video[]>([]);
+  const [apiDataJS_TS_RXJS, setApiDataJS_TS_RXJS] = useState<Video[]>([]);
+  const [apiDataComputerScience, setApiDataComputerScience] = useState<Video[]>([]);
+  const [apiDataDiscreteMathematic, setApiDataDiscreteMathematic] = useState<Video[]>([])
+  const [apiDataJava, setApiDataJava] = useState<Video[]>([])
   const [loading, setLoading] = useState<boolean>(true);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
     const controller = new AbortController();
-    async function fetchData() {
+
+    const fetchDataAndSetData = async (apiClient: any, setData: React.Dispatch<React.SetStateAction<Video[]>>) => {
       try {
-        const { data } = await JS_TS_RXJS.get("/playlistItems", {
-          signal: controller.signal,
-        });
-        console.log(data.items);
-        setApiData(data.items);
+        const items = await fetchData(apiClient, controller);
+        setData((prevData) => [...prevData, ...items]);
       } catch (error: unknown) {
-        if (error instanceof AxiosError) {
+        if(error instanceof AxiosError) {
           throw new Error("Error na requisição " + error);
-        }
+        } 
       }
-    }
-    fetchData();
+    };
+
+    const fetchDataPromises = [
+      fetchDataAndSetData(JS_TS_RXJS, setApiDataJS_TS_RXJS),
+      fetchDataAndSetData(ComputerScience, setApiDataComputerScience),
+      fetchDataAndSetData(discreteMathematic, setApiDataDiscreteMathematic),
+      fetchDataAndSetData(Java, setApiDataJava),
+    ];
+
+    Promise.all(fetchDataPromises)
+      .finally(() => {
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000); 
+      });
 
     return () => {
       console.log("cancelando...");
       controller.abort();
-      clearTimeout(timer);
     };
   }, []);
 
-  const filteredStudy = apiData.filter(
+  const combinedApiData = 
+  [
+    ...apiDataJS_TS_RXJS, 
+    ...apiDataComputerScience, 
+    ...apiDataDiscreteMathematic,
+    ...apiDataJava
+  ];
+
+  const filteredStudy = combinedApiData.filter(
     (item: Video) =>
       search.length === 0 || item.snippet.title.toLowerCase().includes(search)
   );
 
   return {
-    apiData,
+    apiData: combinedApiData,
     loading,
     search,
     setSearch,
