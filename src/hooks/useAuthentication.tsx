@@ -4,6 +4,8 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
   signOut,
+  signInWithPopup,
+  GithubAuthProvider,
 } from "firebase/auth";
 
 import { useState, useEffect } from "react";
@@ -46,7 +48,7 @@ export const useAuthentication = () => {
       let systemErrorMessage;
 
       if (error.message.includes("Password")) {
-        systemErrorMessage = "A senha precisa conter pelo menos 6 carateres";
+        systemErrorMessage = "A senha precisa conter pelo menos 6 caracteres";
       } else if (error.message.includes("email-already")) {
         systemErrorMessage = "E-mail já cadastrado";
       } else {
@@ -87,6 +89,34 @@ export const useAuthentication = () => {
     }
   };
 
+  const loginWithGitHub = async () => {
+    checkIfIsCancelled();
+    setLoading(true);
+    setError(null);
+
+    const provider = new GithubAuthProvider();
+
+    try {
+      const { user } = await signInWithPopup(auth, provider);
+      setLoading(false);
+
+      return user;
+    } catch (error: any) {
+      console.log(error.message);
+
+      let systemErrorMessage;
+
+      if (error.message.includes("user-not-found")) {
+        systemErrorMessage = "Usuário não encontrado.";
+      } else {
+        systemErrorMessage = "Ocorreu um erro ao autenticar com o GitHub.";
+      }
+
+      setLoading(false);
+      setError(systemErrorMessage);
+    }
+  };
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
@@ -95,6 +125,7 @@ export const useAuthentication = () => {
     createUser,
     logout,
     login,
+    loginWithGitHub,
     auth,
     error,
     loading,

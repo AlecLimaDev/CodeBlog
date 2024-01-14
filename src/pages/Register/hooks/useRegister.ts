@@ -8,7 +8,7 @@ export const useRegister = () => {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [error, setError] = useState<string>("");
 
-  const { createUser, error: authError, loading }: any = useAuthentication();
+  const { createUser, loginWithGitHub, error: authError, loading }: any = useAuthentication();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -30,6 +30,15 @@ export const useRegister = () => {
     console.log(res);
   };
 
+  const handleGitHubLogin = async () => {
+    try {
+      setError("");
+      await loginWithGitHub();
+    } catch (error) {
+      setError("Erro ao realizar login com o GitHub");
+    }
+  };
+
   useEffect(() => {
     if (authError) {
       setError(authError);
@@ -38,6 +47,7 @@ export const useRegister = () => {
 
   return {
     handleSubmit,
+    handleGitHubLogin,
     setDisplayName,
     setEmail,
     setPassword,

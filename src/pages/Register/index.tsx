@@ -2,10 +2,12 @@ import * as Styles from "./style";
 import { Link } from "react-router-dom";
 import logoReact from "../../assets/images/react.png";
 import { useRegister } from "./hooks/useRegister";
+import { FaGithub } from "react-icons/fa";
 
 const Register = () => {
   const {
     handleSubmit,
+    handleGitHubLogin, 
     displayName,
     setDisplayName,
     email,
@@ -70,7 +72,17 @@ const Register = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </label>
-        {!loading && <button className="btn">Cadastrar</button>}
+        {!loading && (
+          <>
+            <button onClick={handleGitHubLogin}>
+              Login com GitHub
+              <FaGithub />
+            </button>
+            <button type="submit" className="btn">
+              Cadastrar
+            </button>
+          </>
+        )}
         {loading && (
           <button className="btn" disabled>
             Aguarde...
