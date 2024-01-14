@@ -5,6 +5,13 @@ export const CreatePost = styled.div`
     text-align: center;
     text-transform: none;
     
+    form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    
         h2 {
         font-size: 2.2em;
         }
@@ -35,10 +42,15 @@ export const CreatePost = styled.div`
 
 
 export const Label = styled.label`
+display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
 
 span { 
     font-family: sans-serif;
 }
+
+
 
 
 `

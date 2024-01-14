@@ -48,6 +48,13 @@ export const Container = styled.div`
                     text-align: center;
                     text-transform: none;
                 }   
+
+
+                @media (max-width: 476px) {
+                    iframe {
+                        width: 50%;
+                    }
+                 }
 `;
 
 

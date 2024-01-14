@@ -76,6 +76,7 @@ const Register = () => {
           <>
             <button onClick={handleGitHubLogin}>
               Login com GitHub
+              <br />
               <FaGithub />
             </button>
             <button type="submit" className="btn">
